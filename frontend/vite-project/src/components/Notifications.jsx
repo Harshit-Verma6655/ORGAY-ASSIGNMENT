@@ -7,12 +7,13 @@ function Notifications() {
     let token = JSON.parse(localStorage.getItem('token'));
     let [length, setLength] = useState();
     let [data, setData] = useState();
-    let [checked, setchecked] = useState(false);
+    let [checked, setchecked] = useState();
     useEffect(() => {
         getnotification({ "recieverId": user._id, "token": token.token }).then((data) => {
             console.log("notify data", data);
             setLength(data.data.length);
             setData(data.data);
+
         });
 
     }, [])
